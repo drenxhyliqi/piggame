@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #753682 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  width: 95vw; /* Increased from 90vw */
+  aspect-ratio: 3 / 3;
+  max-height: 95vh; /* Increased from 90vh */
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+
+.player {
+  flex: 50%;
+  padding: 2.2rem; /* Slightly increased padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 0.75s;
+}
+
+/* ELEMENTS */
+.name {
+  position: relative;
+  font-size: 2.2rem; /* Increased font size */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+}
+
+.score {
+  font-size: 4.4rem; /* Increased font size */
+  font-weight: 300;
+  color: #753682;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.player--active .name {
+  font-weight: 700;
+}
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current {
+  background-color: #753682;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: 65%;
+  padding: 1.1rem; /* Slightly increased padding */
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem; /* Increased font size */
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 2.2rem; /* Increased font size */
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem; /* Increased font size */
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.55rem 1.1rem; /* Slightly increased padding */
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.btn--how{
+  top: 2.5%;
+  left: 50%;
+  background-color: #fff;
+}
+
+.btn--new {
+  top: 2.rem;
+}
+
+.btn--roll {
+  top: 55%;
+}
+.btn--hold {
+  top: 65%;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+box-icon{
+  margin-top: .12rem;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  height: 5.5rem; /* Increased size */
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+  background-color: #ac0dcc;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #fff;
+}
+.player--winner .score{
+  color: #fff;
+}
+.player--winner .current{
+  background-color: #fff;
+  color: #753682;
+}
+.player--winner .current-label{
+  color: #753682;
+}
+.hidden {
+  display: none;
+}
+
+/* Media query for larger screens */
+@media screen and (max-width: 480px) {
+  .btn--new p {
+    margin-top: 0.4rem;
+  }
+  .btn--hold p {
+    margin-top: 0.4rem;
+  }
+  .btn--roll p {
+    margin-top: 0.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    width: 100rem;
+    height: 80rem;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .player {
+    padding: 9rem;
+  }
+
+  .name {
+    font-size: 4rem;
+  }
+
+  .score {
+    font-size: 8rem;
+  }
+
+  .current {
+    padding: 2rem;
+  }
+
+  .current-label {
+    font-size: 1.7rem;
+  }
+
+  .current-score {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+    padding: 0.7rem 2.5rem;
+  }
+
+  .btn--new {
+    top: 4rem;
+  }
+  .btn--roll {
+    top: 39.3rem;
+  }
+  .btn--hold {
+    top: 46.1rem;
+  }
+
+  .dice {
+    top: 16.5rem;
+    height: 10rem;
+  }
+}
